@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Hors" Version="0.9.22" />
+      <PackageReference Include="Hors" Version="0.9.25" />
     </ItemGroup>
 
 </Project>
