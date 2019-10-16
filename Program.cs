@@ -47,7 +47,7 @@ namespace HorsConsole
                     );
                     Console.Write((date.HasTime ? "HasTime, " : "NoTime, "));
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine(((date.Type == DateTimeTokenType.Fixed && date.HasTime)
+                    Console.WriteLine(((date.Type != DateTimeTokenType.Period && date.HasTime)
                         ? date.DateFrom.ToString()
                         : (date.DateFrom + " - " + date.DateTo)));
                 }
