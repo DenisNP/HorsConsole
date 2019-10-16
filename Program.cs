@@ -6,6 +6,8 @@ namespace HorsConsole
 {
     class Program
     {
+        private static bool WithTokens = false;
+        
         static void Main(string[] args)
         {
             var hors = new HorsTextParser();
@@ -21,12 +23,19 @@ namespace HorsConsole
                     Console.WriteLine("\nLogging you out.\n");
                     break;
                 }
+
+                if (text == "tokens")
+                {
+                    WithTokens = !WithTokens;
+                    Console.WriteLine("Tokens mode: " + (WithTokens ? "on" : "off") + "\n");
+                    continue;
+                }
                 
                 var result = hors.Parse(text, currentDate);
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("  text: ");
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine(CapitalizeFirst(result.Text));
+                Console.WriteLine(WithTokens ? result.TextWithTokens : CapitalizeFirst(result.Text));
                 foreach (var date in result.Dates)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
